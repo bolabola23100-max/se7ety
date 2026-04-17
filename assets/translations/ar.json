@@ -1,0 +1,21 @@
+{
+  "welcome": "اهلا بيك",
+  "welcome_subtitle": "سجل واحجز عند دكتورك وانت فالبيت",
+  "doctor": "دكتور",
+  "patient": "مريض",
+  "register_as": "سجل دلوقتي كـ ",
+  "skip": "تخطي",
+  "next": "التالي",
+  "login": "تسجيل الدخول",
+  "register": "تسجيل حساب جديد",
+  "username": "اسم المستخدم",
+  "email": "البريد الالكتروني",
+  "password": "كلمة المرور",
+  "confirm_password": "تأكيد كلمة المرور",
+  "login_now": "سجل دخول",
+  "forgot_password": "نسيت كلمة السر ؟",
+  "or": "او",
+  "google": "Google",
+  "have_account": "لدي حساب؟ ",
+  "dont_have_account": "ليس لدي حساب؟ "
+}
