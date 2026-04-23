@@ -16,6 +16,11 @@ dependencies:
   shared_preferences: ^2.5.4
   firebase_core: ^4.7.0
   smooth_page_indicator: ^2.0.1
+  firebase_auth: ^6.4.0
+  dartz: ^0.10.1
+  flutter_bloc: ^9.1.1
+  lottie: ^3.3.3
+  cloud_firestore: ^6.3.0
 
 dev_dependencies:
   flutter_test:

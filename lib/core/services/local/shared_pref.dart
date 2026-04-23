@@ -4,6 +4,7 @@ abstract class SharedPref {
   static late SharedPreferences pref;
 
   static const String onBoardingKey = "onBoarding";
+  static const String userIdKey = "userId";
 
   static Future<void> init() async {
     pref = await SharedPreferences.getInstance();
@@ -15,6 +16,14 @@ abstract class SharedPref {
 
   static bool getOnBoarding() {
     return pref.getBool(onBoardingKey) ?? false;
+  }
+
+  static Future<void> cacheUserId(String id) async {
+    await pref.setString(userIdKey, id);
+  }
+
+  static String getUserId() {
+    return pref.getString(userIdKey) ?? "";
   }
 
   static Future<void> cacheData(String key, dynamic value) async {

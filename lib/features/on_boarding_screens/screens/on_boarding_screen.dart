@@ -102,7 +102,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       MainButton(
                         text: "لنبدأ",
                         onPressed: () {
-                          if (controller.page == pages.length - 1) {
+                          if (currentPage == pages.length - 1) {
                             SharedPref.cacheOnBoarding();
                             pushReplacement(context, Routes.welcome);
                           } else {

@@ -9,7 +9,7 @@ ThemeData themeData() {
 
     scaffoldBackgroundColor: AppColors.bgColor,
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: AppColors.primaryColor,
       elevation: 0,
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
@@ -54,6 +54,7 @@ ThemeData themeData() {
       unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w700, height: 2),
       showSelectedLabels: false,
       showUnselectedLabels: false,
+      
     ),
   );
 }

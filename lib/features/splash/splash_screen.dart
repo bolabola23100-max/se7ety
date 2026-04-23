@@ -18,9 +18,9 @@ class _SplashScreenState extends State<SplashScreen> {
     bool isOnBoardingShown = SharedPref.getOnBoarding();
     Future.delayed(const Duration(seconds: 3), () {
       if (isOnBoardingShown) {
-        pushTo(context, Routes.onBoarding);
+        pushReplacement(context, Routes.welcome);
       } else {
-        pushTo(context, Routes.onBoarding);
+        pushReplacement(context, Routes.onBoarding);
       }
     });
   }

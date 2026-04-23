@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_icons.dart';
 import 'package:se7ety/core/constants/user_type_enum.dart';
@@ -8,8 +9,11 @@ import 'package:se7ety/core/styles/colors.dart';
 import 'package:se7ety/core/styles/text_styles.dart';
 import 'package:se7ety/core/utils/navigations.dart';
 import 'package:se7ety/core/utils/validators.dart';
+import 'package:se7ety/core/widgets/dialog.dart';
 import 'package:se7ety/core/widgets/inputs/custom_text_form_field.dart';
 import 'package:se7ety/core/widgets/inputs/main_button.dart';
+import 'package:se7ety/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:se7ety/features/auth/presentation/cubit/auth_state.dart';
 import 'package:se7ety/features/auth/presentation/widgets/auth_text_action.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,11 +26,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
-
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
   String handleUserType() {
     return widget.userTypeEnum == UserTypeEnum.doctor
         ? "doctor".tr()
@@ -34,36 +33,50 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is AuthLoadingState) {
+          showLoading(context);
+        } else if (state is AuthSuccessState) {
+          pop(context);
+          if (widget.userTypeEnum == UserTypeEnum.patient) {
+            pushAndRemoveUntil(context, Routes.navRoot);
+          } else {
+            pushAndRemoveUntil(context, Routes.doctorProfileComplete);
+          }
+        } else if (state is AuthErrorState) {
+          pop(context);
+          showAppSnackBar(context, state.message, type: DialogType.error);
+        }
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
 
-      appBar: AppBar(automaticallyImplyLeading: false),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+        ),
 
-      bottomNavigationBar: AuthTextAction(
-        text1: "dont_have_account".tr(),
-        text2: "register".tr(),
-        onPressed: () {
-          pushTo(context, Routes.register, extra: widget.userTypeEnum);
-        },
+        bottomNavigationBar: AuthTextAction(
+          text1: "dont_have_account".tr(),
+          text2: "register".tr(),
+          onPressed: () {
+            pushTo(context, Routes.register, extra: widget.userTypeEnum);
+          },
+        ),
+
+        body: SafeArea(child: _loginBody()),
       ),
-
-      body: SafeArea(child: _loginBody()),
     );
   }
 
   Widget _loginBody() {
+    var cubit = context.read<AuthCubit>();
     return SingleChildScrollView(
       padding: const EdgeInsets.only(bottom: 20),
       child: Form(
-        key: _formKey,
+        key: cubit.formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -85,11 +98,11 @@ class _LoginScreenState extends State<LoginScreen> {
             const Gap(20),
 
             CustomTextFormField(
-              controller: emailController,
-              hintText: "username".tr(),
-              validator: Validators().validatorName,
+              controller: cubit.emailController,
+              hintText: "email".tr(),
+              validator: Validators().validatorEmail,
               prefixIcon: const Icon(
-                Icons.person,
+                Icons.email,
                 color: AppColors.primaryColor,
               ),
             ),
@@ -97,13 +110,10 @@ class _LoginScreenState extends State<LoginScreen> {
             const Gap(10),
 
             CustomTextFormField(
-              controller: emailController,
-              hintText: "Sayed@example.com",
-              validator: Validators().validatorEmail,
-              prefixIcon: const Icon(
-                Icons.email,
-                color: AppColors.primaryColor,
-              ),
+              controller: cubit.passwordController,
+              hintText: "password".tr(),
+              validator: Validators().validatorPassword,
+              prefixIcon: const Icon(Icons.lock, color: AppColors.primaryColor),
             ),
 
             const Gap(15),
@@ -122,7 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: MainButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {}
+                  if (cubit.formKey.currentState!.validate()) {
+                    cubit.login();
+                  }
                 },
                 text: "login".tr(),
                 borderRadius: 20,

@@ -12,3 +12,7 @@ Future pushTo(BuildContext context, String route, {Object? extra}) {
 void pop(BuildContext context) {
   return context.pop();
 }
+
+void pushAndRemoveUntil(BuildContext context, String route) {
+  return context.go(route);
+}
