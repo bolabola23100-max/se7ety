@@ -5,6 +5,7 @@ import 'package:se7ety/core/constants/user_type_enum.dart';
 import 'package:se7ety/core/services/firebase/failure.dart';
 import 'package:se7ety/core/services/firebase/firebase_provider.dart';
 import 'package:se7ety/core/services/local/shared_pref.dart';
+import 'package:se7ety/core/utils/image_uploader.dart';
 import 'package:se7ety/features/auth/data/model/auth_prams.dart';
 import 'package:se7ety/features/auth/data/model/doctor_model.dart';
 import 'package:se7ety/features/auth/data/model/patient_model.dart';
@@ -110,6 +111,20 @@ abstract class AuthRepo {
     } catch (e, stackTrace) {
       log("REAL ERROR: $e");
       log("STACK: $stackTrace");
+      return left(Failure(message: e.toString()));
+    }
+  }
+
+  static Future<Either<Failure, Unit>> updateDoctorProfile(
+    DoctorModel doctor,
+  ) async {
+    try {
+      if (doctor.image != null) {
+        doctor.imageUrl = await uploadImageToCloudinary(doctor.image!) ?? '';
+      }
+      await FirebaseProvider.updateDoctor(doctor);
+      return right(unit);
+    } catch (e) {
       return left(Failure(message: e.toString()));
     }
   }

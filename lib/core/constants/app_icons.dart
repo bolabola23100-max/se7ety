@@ -6,4 +6,6 @@ class AppIcons {
   static const String onBoarding5 = "assets/icons/onBoarding3.png";
   static const String heart = "assets/icons/heart.json";
   static const String loading = "assets/icons/loading.json";
+  static const String doc = "assets/icons/doc.png";
+  static const String doctorCart = "assets/icons/doctor_cart.png";
 }

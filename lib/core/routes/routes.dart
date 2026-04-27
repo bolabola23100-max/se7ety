@@ -4,7 +4,7 @@ import 'package:se7ety/core/constants/user_type_enum.dart';
 import 'package:se7ety/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:se7ety/features/auth/presentation/screens/authentication/login_screen.dart';
 import 'package:se7ety/features/auth/presentation/screens/authentication/register_screen.dart';
-import 'package:se7ety/features/main/main_screen.dart';
+import 'package:se7ety/features/patient/main/main_screen.dart';
 import 'package:se7ety/features/on_boarding_screens/screens/on_boarding_screen.dart';
 import 'package:se7ety/features/on_boarding_screens/screens/welcome_screen.dart';
 import 'package:se7ety/features/doctor_profile/presentation/screen/doctor_profile_complete_view.dart';
@@ -12,7 +12,7 @@ import 'package:se7ety/features/booking/presentation/screens/booking_view.dart';
 import 'package:se7ety/features/doctor_details/presentation/screens/doctor_details_view.dart';
 import 'package:se7ety/features/settings/presentation/screens/settings_view.dart';
 import 'package:se7ety/features/splash/splash_screen.dart';
-import 'package:se7ety/features/search/presentation/screens/search_view.dart';
+import 'package:se7ety/features/search/presentation/screens/search_screen.dart';
 
 class Routes {
   static const String splash = "/";
@@ -52,7 +52,7 @@ GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.navRoot,
-      builder: (context, state) => const MainScreen(),
+      builder: (context, state) => const PatientMainAppScreen(),
     ),
     GoRoute(
       path: Routes.doctorDetails,
@@ -68,11 +68,14 @@ GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.doctorProfileComplete,
-      builder: (context, state) => const DoctorProfileCompleteView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const DoctorProfileCompleteView(),
+      ),
     ),
     GoRoute(
       path: Routes.searchView,
-      builder: (context, state) => const SearchView(),
+      builder: (context, state) => const SearchScreen(),
     ),
   ],
 );

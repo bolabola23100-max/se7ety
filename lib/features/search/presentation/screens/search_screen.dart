@@ -4,8 +4,8 @@ import 'package:se7ety/core/styles/colors.dart';
 import 'package:se7ety/core/widgets/inputs/custom_text_form_field.dart';
 import 'package:se7ety/features/search/presentation/Widgets/custom_search_item.dart';
 
-class SearchView extends StatelessWidget {
-  const SearchView({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

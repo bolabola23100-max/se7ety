@@ -1,42 +1,71 @@
-# Se7ety (صحتي)
+# Se7ety (صحتي) 🩺
 
-A minimal and beautiful Healthcare Application built entirely using **Flutter** and **Dart**.
-
-## Overview
-
-This application provides a seamless experience for both **Doctors** and **Patients** to register, login, and manage their health flow.
-
-## Technologies & Packages
-
-The app uses the following modern stack:
-
-- **[Flutter](https://flutter.dev) & [Dart](https://dart.dev)**: For cross-platform high-performance UI.
-- **[Firebase](https://firebase.google.com)** (`firebase_core`): Connected to Firebase to handle cloud data and authentication flows.
-- **`go_router`**: For clean and declarative navigation and passing data between screens.
-- **`easy_localization`**: Used for supporting Arabic out of the box and making the app multi-language ready.
-- **`shared_preferences`**: Working locally to save app states (e.g., hiding onboarding after first launch).
-- **`smooth_page_indicator`**: To build elegant dots indicators inside the Onboarding screen.
-- **`flutter_svg`**: To render vector format icons smoothly.
-- **`gap`**: Providing readable, clean spacing between UI widgets.
+A premium, modern Healthcare Application built using **Flutter** and **Dart**. Se7ety provides a comprehensive platform for managing doctor-patient interactions, appointment scheduling, and professional medical profiles.
 
 ---
 
-## Screenshots
+## 🚀 Features
 
-### Application Flow
+### For Patients
 
-|               **Splash Screen**                |               **Welcome Screen**                |
+- **Smart Search**: Find doctors by name or browse through various specializations.
+- **Top Rated Doctors**: Discover high-quality medical care through a real-time rating system.
+- **Appointment Booking**: Simple and intuitive flow to manage your health schedule.
+- **Beautiful Dashboard**: A personalized home screen with a modern navigation bar.
+
+### For Doctors
+
+- **Professional Profile**: Complete your registration with clinic details, bio, and work hours.
+- **Cloud Profile Image**: Seamless image upload and hosting using Cloudinary integration.
+- **Identity Management**: Secure authentication and role-based access.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: [Flutter](https://flutter.dev) (Latest Version)
+- **State Management**: [Flutter Bloc](https://pub.dev/packages/flutter_bloc) (Cubit)
+- **Backend**: [Firebase](https://firebase.google.com) (Auth, Firestore)
+- **Image Hosting**: [Cloudinary](https://cloudinary.com)
+- **Navigation**: [GoRouter](https://pub.dev/packages/go_router)
+- **Localization**: [Easy Localization](https://pub.dev/packages/easy_localization) (Full Arabic Support)
+- **UI Components**:
+  - `google_nav_bar` (Modern Bottom Navigation)
+  - `smooth_page_indicator` (Onboarding Dots)
+  - `lottie` & `flutter_svg` (Animations and Icons)
+
+---
+
+## 📸 Screenshots
+
+### 🗺️ Application Flow
+
+|                 Splash Screen                  |                 Welcome Screen                  |
 | :--------------------------------------------: | :---------------------------------------------: |
-| <img src="screenshot/splash.jpeg" width="300"> | <img src="screenshot/welcome.jpeg" width="300"> |
+| <img src="screenshot/splash.jpeg" width="280"> | <img src="screenshot/welcome.jpeg" width="280"> |
 
-### Onboarding
+### 📖 Onboarding Experience
 
-|                  **Onboarding 1**                  |                  **Onboarding 2**                   |                  **Onboarding 3**                   |
+|                    Onboarding 1                    |                    Onboarding 2                     |                    Onboarding 3                     |
 | :------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
-| <img src="screenshot/onboarding.jpeg" width="300"> | <img src="screenshot/onboarding1.jpeg" width="300"> | <img src="screenshot/onboarding2.jpeg" width="300"> |
+| <img src="screenshot/onboarding.jpeg" width="250"> | <img src="screenshot/onboarding1.jpeg" width="250"> | <img src="screenshot/onboarding2.jpeg" width="250"> |
 
-### Authentication
+### 🔐 Authentication Flow
 
-|                   **Login**                   |                  **Login 1**                   |                   **Register**                   |
+|                     Login                     |                 Advanced Login                 |                     Register                     |
 | :-------------------------------------------: | :--------------------------------------------: | :----------------------------------------------: |
-| <img src="screenshot/login.jpeg" width="300"> | <img src="screenshot/login1.jpeg" width="300"> | <img src="screenshot/register.jpeg" width="300"> |
+| <img src="screenshot/login.jpeg" width="250"> | <img src="screenshot/login1.jpeg" width="250"> | <img src="screenshot/register.jpeg" width="250"> |
+
+### 🏠 Patient Dashboard & Search
+
+|                Home Dashboard                |             Specialization Search             |
+| :------------------------------------------: | :-------------------------------------------: |
+| <img src="screenshot/home.jpeg" width="280"> | <img src="screenshot/home1.jpeg" width="280"> |
+
+### 👨‍⚕️ Doctor Profile Complete
+
+|                         Step 1: Details                         |                       Step 2: Confirmation                       |
+| :-------------------------------------------------------------: | :--------------------------------------------------------------: |
+| <img src="screenshot/doctor_profile_complete.jpeg" width="280"> | <img src="screenshot/doctor_profile_complete1.jpeg" width="280"> |
+
+---

@@ -90,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const Gap(10),
 
             Text(
-              "register_as".tr() + "${handleUserType()}",
+              "${"register_as".tr()}${handleUserType()}",
               style: TextStyles.fs20.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.primaryColor,
