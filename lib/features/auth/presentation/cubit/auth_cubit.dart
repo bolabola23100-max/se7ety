@@ -73,6 +73,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> updateDoctor() async {
     emit(AuthLoadingState());
     var doctor = DoctorModel(
+      name: nameController.text,
       bio: bioController.text,
       phone1: phone1Controller.text,
       phone2: phone2Controller.text,

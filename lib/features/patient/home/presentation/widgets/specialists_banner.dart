@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:se7ety/core/constants/app_icons.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/styles/colors.dart';
 import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/utils/navigations.dart';
 import 'package:se7ety/features/patient/home/data/card.dart';
 
 class SpecialistsBanner extends StatelessWidget {
@@ -18,12 +20,18 @@ class SpecialistsBanner extends StatelessWidget {
           height: 230,
           width: double.infinity,
           child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: cards.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  pushTo(
+                    context,
+                    Routes.specializationSearch,
+                    extra: cards[index].specialization,
+                  );
+                },
                 child: ItemCardWidget(model: cards[index]),
               );
             },

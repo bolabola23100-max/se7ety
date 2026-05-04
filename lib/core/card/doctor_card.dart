@@ -1,32 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/core/styles/colors.dart';
 import 'package:se7ety/core/styles/text_styles.dart';
+import 'package:se7ety/core/utils/navigations.dart';
 import 'package:se7ety/features/auth/data/model/doctor_model.dart';
 
 class DoctorCard extends StatelessWidget {
-  const DoctorCard({super.key, required this.doctor});
+  const DoctorCard({super.key, required this.doctor, this.isClickable = true});
 
   final DoctorModel doctor;
+  final bool isClickable;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 0),
-      margin: const EdgeInsets.only(top: 10),
-      width: double.infinity,
-      height: 80,
-      decoration: BoxDecoration(
-        color: Colors.blue[50],
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(-3, 0),
-            blurRadius: 15,
-            color: Colors.grey.withValues(alpha: .1),
-          ),
-        ],
-      ),
-      child: InkWell(
-        onTap: () {},
+    return GestureDetector(
+      onTap: () {
+        if (isClickable) {
+          pushTo(context, Routes.doctorProfile, extra: doctor);
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 0),
+        margin: const EdgeInsets.only(top: 10),
+        width: double.infinity,
+        height: 80,
+        decoration: BoxDecoration(
+          color: Colors.blue[50],
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(-3, 0),
+              blurRadius: 15,
+              color: Colors.grey.withValues(alpha: .1),
+            ),
+          ],
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

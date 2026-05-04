@@ -36,36 +36,49 @@ A premium, modern Healthcare Application built using **Flutter** and **Dart**. S
 
 ---
 
-## 📸 Screenshots
+### 📸 Screenshots
 
-### 🗺️ Application Flow
+#### 🗺️ Application Flow
 
 |                 Splash Screen                  |                 Welcome Screen                  |
 | :--------------------------------------------: | :---------------------------------------------: |
 | <img src="screenshot/splash.jpeg" width="280"> | <img src="screenshot/welcome.jpeg" width="280"> |
 
-### 📖 Onboarding Experience
+#### 📖 Onboarding Experience
 
 |                    Onboarding 1                    |                    Onboarding 2                     |                    Onboarding 3                     |
 | :------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
 | <img src="screenshot/onboarding.jpeg" width="250"> | <img src="screenshot/onboarding1.jpeg" width="250"> | <img src="screenshot/onboarding2.jpeg" width="250"> |
 
-### 🔐 Authentication Flow
+#### 🔐 Authentication Flow
 
 |                     Login                     |                 Advanced Login                 |                     Register                     |
 | :-------------------------------------------: | :--------------------------------------------: | :----------------------------------------------: |
 | <img src="screenshot/login.jpeg" width="250"> | <img src="screenshot/login1.jpeg" width="250"> | <img src="screenshot/register.jpeg" width="250"> |
 
-### 🏠 Patient Dashboard & Search
+#### 🏠 Patient Dashboard & Search
 
-|                Home Dashboard                |             Specialization Search             |
-| :------------------------------------------: | :-------------------------------------------: |
-| <img src="screenshot/home.jpeg" width="280"> | <img src="screenshot/home1.jpeg" width="280"> |
+|                Home Dashboard                |             Specialization Search             |                 Search Screen                 |
+| :------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| <img src="screenshot/home.jpeg" width="250"> | <img src="screenshot/home1.jpeg" width="250"> | <img src="screenshot/search_screen.jpeg" width="250"> |
 
-### 👨‍⚕️ Doctor Profile Complete
+#### 👨‍⚕️ Doctor Profile & Appointments
+
+|                   Public Profile                   |                   Own Profile                   |                  Appointments                  |
+| :------------------------------------------------: | :---------------------------------------------: | :--------------------------------------------: |
+| <img src="screenshot/doctor_profile_public.jpeg" width="250"> | <img src="screenshot/doctor_profile_own.jpeg" width="250"> | <img src="screenshot/appointments_list.jpeg" width="250"> |
+
+#### ⚙️ Settings & Profile Management
+
+|                    Settings Menu                    |                   Edit Profile                    |                   Personal Account                    |
+| :-------------------------------------------------: | :-----------------------------------------------: | :---------------------------------------------------: |
+| <img src="screenshot/settings_menu.jpeg" width="250"> | <img src="screenshot/account_settings_edit.jpeg" width="250"> | <img src="screenshot/personal_account_overview.jpeg" width="250"> |
+
+#### 📝 Doctor Registration
 
 |                         Step 1: Details                         |                       Step 2: Confirmation                       |
 | :-------------------------------------------------------------: | :--------------------------------------------------------------: |
-| <img src="screenshot/doctor_profile_complete.jpeg" width="280"> | <img src="screenshot/doctor_profile_complete1.jpeg" width="280"> |
+| <img src="screenshot/doctor_registration_1.jpeg" width="280"> | <img src="screenshot/doctor_registration_2.jpeg" width="280"> |
 
 ---
+

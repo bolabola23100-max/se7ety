@@ -9,6 +9,10 @@ Future pushTo(BuildContext context, String route, {Object? extra}) {
   return context.push(route, extra: extra);
 }
 
+void pushToBase(BuildContext context, String route, {Object? extra}) {
+  return context.go(route, extra: extra);
+}
+
 void pop(BuildContext context) {
   return context.pop();
 }

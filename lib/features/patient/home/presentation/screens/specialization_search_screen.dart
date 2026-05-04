@@ -19,7 +19,7 @@ class SpecializationSearchScreen extends StatelessWidget {
         title: Text(specialization),
       ),
       body: FutureBuilder(
-        future: FirebaseProvider.getDoctors(),
+        future: FirebaseProvider.getDoctorsBySpecialization(specialization),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());
@@ -29,7 +29,6 @@ class SpecializationSearchScreen extends StatelessWidget {
               : Padding(
                   padding: const EdgeInsets.all(15),
                   child: ListView.builder(
-                    physics: const ClampingScrollPhysics(),
                     itemCount: snapshot.data?.docs.length,
                     itemBuilder: (context, index) {
                       DoctorModel doctor = DoctorModel.fromJson(

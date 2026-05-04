@@ -41,9 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
         } else if (state is AuthSuccessState) {
           pop(context);
           if (widget.userTypeEnum == UserTypeEnum.patient) {
-            pushAndRemoveUntil(context, Routes.navRoot);
+            pushAndRemoveUntil(context, Routes.patientMainAppScreen);
           } else {
-            pushAndRemoveUntil(context, Routes.doctorProfileComplete);
+            pushAndRemoveUntil(context, Routes.doctorMainAppScreen);
           }
         } else if (state is AuthErrorState) {
           pop(context);
